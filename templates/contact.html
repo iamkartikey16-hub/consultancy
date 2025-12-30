@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiran Consultancy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-area">
+    <img src="{{ url_for('static', filename='images/logo.png') }}">
+    <span>Kiran Consultancy</span>
+  </div>
+
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/about">At a Glance</a>
+    <a href="/services">Services</a>
+    <a href="/clientele">Clientele</a>
+    <a href="/achievements">Achievements</a>
+    <a href="/gallery">Gallery</a>
+    <a href="/contact" class="active">Contact Us</a>
+  </nav>
+</header>
+
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <h1>Contact Us</h1>
+  <p>We would love to hear from you</p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+
+  <!-- TOP ROW -->
+  <div class="contact-top">
+    
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p><strong>Address:</strong><br>
+        Office Address Line 1,<br>
+        City, State, PIN
+      </p>
+
+      <p><strong>Phone:</strong><br>
+        +91-XXXXXXXXXX
+      </p>
+
+      <p><strong>Email:</strong><br>
+        info@kiranconsultancy.com
+      </p>
+    </div>
+
+    <div class="contact-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1754.9257224023213!2d77.35305813840691!3d28.393554543949044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdce83c0e4de3%3A0xb3532a63bbf7e00a!2sFLORIDAA%20APARTMENT%2C%20Sector%2082%2C%20Faridabad%2C%20Haryana%20121007!5e0!3m2!1sen!2sin!4v1767123517548!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+  </div>
+
+  <!-- FORM -->
+<section class="page-header">
+  <h1>Or Send Us a Message</h1>
+</section>
+
+  <div class="contact-form">
+
+    <form method="post" id="enquiryForm">
+      <input type="text" name="full_name" placeholder="Full Name" required>
+      <input type="text" name="company_name" placeholder="Company Name">
+      <input type="email" name="email" placeholder="Email ID" required>
+      <input type="tel" name="mobile" placeholder="Mobile Number" pattern="[0-9]{10}" required>
+
+      <select name="iso_standard" required>
+        <option value="">Interested ISO Standard</option>
+        <option value="ISO 9001">ISO 9001</option>
+        <option value="ISO 14001">ISO 14001</option>
+        <option value="ISO 45001">ISO 45001</option>
+        <option value="ISO 22000">ISO 22000</option>
+        <option value="ISO 27001">ISO 27001</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <select name="current_status" required>
+        <option value="">Current Status</option>
+        <option value="New">New</option>
+        <option value="In Process">In Process</option>
+        <option value="Certified">Certified</option>
+        <option value="Renewal">Renewal</option>
+      </select>
+
+      <textarea name="message" placeholder="Message / Requirements" required></textarea>
+
+      <button type="submit">Submit Enquiry</button>
+    </form>
+  </div>
+
+</section>
+
+
+<!-- SUCCESS MODAL -->
+<div id="successModal">
+  <div class="modal-box">
+    <p>✅ Thanks for contacting us<br>We will get back to you shortly.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Kiran Consultancy. All Rights Reserved.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

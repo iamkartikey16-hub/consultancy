@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiran Consultancy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-area">
+    <img src="{{ url_for('static', filename='images/logo.png') }}">
+    <span>Kiran Consultancy</span>
+  </div>
+
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/about">At a Glance</a>
+    <a href="/services">Services</a>
+    <a href="/clientele">Clientele</a>
+    <a href="/achievements">Achievements</a>
+    <a href="/gallery" class="active">Gallery</a>
+    <a href="/contact">Contact Us</a>
+  </nav>
+</header>
+
+<!-- ===============================
+     PAGE CONTENT STARTS HERE
+     =============================== -->
+
+<!-- Replace this section in each page -->
+<section class="page-content">
+  <h1>Page Title</h1>
+  <p>Page specific content goes here.</p>
+</section>
+
+<!-- ===============================
+     PAGE CONTENT ENDS HERE
+     =============================== -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Kiran Consultancy. All Rights Reserved.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
