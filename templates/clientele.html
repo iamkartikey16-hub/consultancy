@@ -17,7 +17,7 @@
 
   <nav class="nav">
     <a href="/">Home</a>
-    <a href="/about">At a Glance</a>
+    <a href="/about">About Us</a>
     <a href="/services">Services</a>
     <a href="/clientele" class="active">Clientele</a>
     <a href="/achievements">Achievements</a>
@@ -30,11 +30,34 @@
      PAGE CONTENT STARTS HERE
      =============================== -->
 
-<!-- Replace this section in each page -->
-<section class="page-content">
-  <h1>Page Title</h1>
-  <p>Page specific content goes here.</p>
+<section class="page-content clientele-page">
+
+  <h1>Our Clients</h1>
+
+  <p class="clientele-intro">
+    Over the years, Kiran Consultancy has partnered with 25+ organizations
+    across manufacturing, services, healthcare, education, and IT sectors,
+    supporting them in ISO implementation, certification, and audits.
+  </p>
+
+  <!-- CLIENT LOGO GRID -->
+  <div class="client-logos">
+
+    {% for i in range(1, 40) %}
+    <div class="client-logo">
+      <img src="{{ url_for('static', filename='images/clients/client' ~ i ~ '.png') }}"
+           alt="Client {{ i }}">
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <p class="clientele-note">
+    Client logos are displayed with consent. Detailed references can be shared upon request.
+  </p>
+
 </section>
+
 
 <!-- ===============================
      PAGE CONTENT ENDS HERE

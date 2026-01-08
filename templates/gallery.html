@@ -30,11 +30,33 @@
      PAGE CONTENT STARTS HERE
      =============================== -->
 
-<!-- Replace this section in each page -->
 <section class="page-content">
-  <h1>Page Title</h1>
-  <p>Page specific content goes here.</p>
+  <h1>Gallery</h1>
+  <p>Some glimpses of our work and activities</p>
+
+  <div class="gallery-grid">
+    <img src="{{ url_for('static', filename='images/gallery/img1.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img2.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img3.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img4.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img5.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img6.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img7.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img8.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img9.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img10.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img11.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img12.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img13.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img14.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img15.jpeg') }}" class="gallery-img" alt="">
+    <img src="{{ url_for('static', filename='images/gallery/img16.jpeg') }}" class="gallery-img" alt="">
+  </div>
 </section>
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" id="lightbox-img">
+</div>
 
 <!-- ===============================
      PAGE CONTENT ENDS HERE
