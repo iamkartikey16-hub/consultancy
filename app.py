@@ -1,15 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for,  jsonify
 import smtplib
 from email.message import EmailMessage
+import os
 
 app = Flask(__name__)
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-SENDER_EMAIL = "bdipl0212@gmail.com"        # sender
-SENDER_PASSWORD = "uxolktesedudrlvm"       # Gmail App Password
-RECEIVER_EMAIL = "iamkartikey16@gmail.com"  # 🔥 where enquiries go
-from flask import Flask, request, jsonify
+SENDER_EMAIL = os.getenv("bdipl0212@gmail.com")       # sender
+SENDER_PASSWORD = os.getenv("uxolktesedudrlvm")      # Gmail App Password
+RECEIVER_EMAIL = os.getenv("iamkartikey16@gmail.com")  # 🔥 where enquiries go
+
+import smtplib
+from email.message import EmailMessage
+import os
+
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
+
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
+
 
 @app.route("/submit-enquiry", methods=["POST"])
 def submit_enquiry():
@@ -19,9 +31,11 @@ def submit_enquiry():
     mobile = request.form.get("mobile")
     message = request.form.get("message")
 
-    email_body = f"""
-New Contact Enquiry Received
-
+    msg = EmailMessage()
+    msg["Subject"] = "New Enquiry - Kiran Consultancy Website"
+    msg["From"] = SENDER_EMAIL
+    msg["To"] = RECEIVER_EMAIL
+    msg.set_content(f"""
 Name: {name}
 Company: {company}
 Email: {email}
@@ -29,25 +43,20 @@ Mobile: {mobile}
 
 Message:
 {message}
-"""
+""")
 
     try:
-        msg = EmailMessage()
-        msg["Subject"] = "New Enquiry - Kiran Consultancy Website"
-        msg["From"] = SENDER_EMAIL
-        msg["To"] = RECEIVER_EMAIL
-        msg.set_content(email_body)
-
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SENDER_EMAIL, SENDER_PASSWORD)
-            server.send_message(msg)
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10)
+        server.starttls()
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        server.send_message(msg)
+        server.quit()
 
         return jsonify({"success": True})
 
     except Exception as e:
-        print("Email error:", e)
-        return jsonify({"success": False})
+        print("❌ EMAIL ERROR:", e)
+        return jsonify({"success": False}), 500
 
 
 @app.route("/")
